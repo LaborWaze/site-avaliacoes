@@ -1,4 +1,5 @@
 {
+  "types": "module",
   "name": "site-avaliacoes",
   "version": "1.0.0",
   "type": "module",
