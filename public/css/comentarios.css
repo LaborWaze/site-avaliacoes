@@ -1,0 +1,289 @@
+/* =============================
+   RESET E ESTRUTURA GLOBAL
+============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================
+   CABEÇALHO E TOPO
+============================= */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background-image: url('../assets/Background-Logo-SiteAvaliacao2.1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: url('../assets/Arrow-left2.png');
+  background-size: 100%;
+  background-position: right 3.5px center;
+  background-repeat: no-repeat;
+  background-color: #1fdf1f;
+  cursor: pointer;
+  margin-right: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+}
+
+.back-button:active {
+  transform: scale(1.1);
+}
+
+.site-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f5f5f5;
+}
+
+/* =============================
+   FILTRO E TOPO DA ÁREA DE COMENTÁRIOS
+============================= */
+.main-options {
+  background-color: white;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filtro-header {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.filtro-header h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.filtro-comentarios {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.filtro-comentarios select {
+  padding: 0.3rem;
+  font-size: 0.95rem;
+}
+
+/* =============================
+   FORMULÁRIO DE COMENTÁRIO
+============================= */
+.comentarios {
+  width: 100%;
+  padding: 2rem;
+  background: #f2f2f2;
+}
+
+#form-comentario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 100%;
+}
+
+#comentario-input {
+  width: 100%;
+  height: 120px;
+  font-size: 1rem;
+  padding: 1rem;
+  resize: vertical;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+}
+
+#form-comentario button {
+  align-self: flex-start;
+  padding: 0.6rem 1.5rem;
+  font-weight: bold;
+  background: #2b7de9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#form-comentario button:hover {
+  background: #1f5ec2;
+}
+
+/* =============================
+   COMENTÁRIOS LISTADOS
+============================= */
+.comentario {
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.comentario-id {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.comentario-texto {
+  margin-bottom: 0.8rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.curtir-btn {
+  background: none;
+  border: none;
+  color: #e63946;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.curtir-btn:hover {
+  transform: scale(1.1);
+}
+
+.responder-btn {
+  margin-left: 1rem;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.responder-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* =============================
+   RESPOSTAS E FORMULÁRIO DE RESPOSTA
+============================= */
+.form-resposta {
+  margin-top: 1rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-resposta.visivel {
+  display: flex;
+}
+
+.form-resposta textarea {
+  width: 100%;
+  height: 60px;
+  padding: 0.5rem;
+  resize: vertical;
+}
+
+.form-resposta button {
+  width: 120px;
+  padding: 0.4rem;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resposta-container {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid #ccc;
+}
+
+.comentario-resposta {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  flex-wrap: wrap;
+}
+
+.comentario-resposta span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.comentario-resposta .curtir-btn {
+  font-size: 1rem;
+}
+
+.toggle-respostas-btn {
+  background: none;
+  border: none;
+  color: #2b7de9;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+.toggle-respostas-btn:hover {
+  text-decoration: underline;
+}
+
+/* =============================
+   RESPONSIVIDADE
+============================= */
+@media (max-width: 768px) {
+  .back-button {
+    width: 65px;
+    height: 65px;
+  }
+
+  .site-title {
+    font-size: 1.5rem;
+  }
+
+  .filtro-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .filtro-comentarios {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avalia Aqui - Votação</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="back-button" onclick="window.location.href='index.html'"></div>
+    <body class="vote">
+      <h1 class="site-title">Avalia Aqui - Votação</h1>
+    </body>
+  </header>
+
+  <main class="vote-main">
+    <input type="text" id="searchInput" placeholder="Buscar estabelecimento..." class="search-bar"/>
+
+    <div class="establishment-list" id="establishmentList">
+      <!-- Estabelecimentos renderizados via JavaScript -->
+    </div>
+  </main>
+
+  <script type="module" src="js/votes.js"></script>
+</body>
+</html>

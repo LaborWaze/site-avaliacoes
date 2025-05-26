@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background-image: url('../assets/Background-Logo-SiteAvaliacao4.png'); /* <- caminho da imagem */
+  background-size: cover; /* Ajusta a imagem para preencher */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: url('../assets/Arrow-left2.png');
+  background-size: 100%;
+  background-position: right 3.5px center;
+  background-repeat: no-repeat;
+  background-color: #ffcc17;
+  cursor: pointer;
+  margin-right: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+}
+
+.back-button:active {
+  transform: scale(1.1);
+}
+
+.site-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #f5f5f5;
+}
+
+.main-options {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/Background-Screen4.png'); /* <- caminho da imagem */
+  background-size: cover; /* Ajusta a imagem para preencher */
+  background-position: center; /* Centraliza a imagem */
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.carossel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.option-box {
+  flex: 0 0 90%;
+  height: 450px;
+  border-radius: 20px;
+  background-color: #2b7de9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.4s ease;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.option-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.side {
+  flex: 0 0 20%;
+  opacity: 0.5;
+  transform: scale(0.85);
+}
+
+.side-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  user-select: none;
+}
+
+.left {
+  left: 10px;
+  margin-left: 100px;
+}
+
+.right {
+  right: 10px;
+  margin-right: 100px;
+}
+
+.option-box:not(.side):hover,
+.option-box:not(.side):active {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.side-circle:hover,
+.side-circle:active {
+  transform: translateY(-50%) scale(1.15);
+  transition: transform 0.2s ease;
+}
+
+.side-circle.left {
+  background-image: url('../assets/Seta-esquerda.png');
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.side-circle.right {
+  background-image: url('../assets/Seta-direita.PNG');
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.box-label {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .back-button {
+    width: 55px;
+    height: 55px;
+  }
+
+  .site-title {
+    font-size: 1.2rem;
+  }
+
+  .box-label {
+    font-size: 1.5rem;
+  }
+
+  .option-box {
+    height: 200px;
+    font-size: 2rem;
+    flex: 0 70%;
+  }
+
+  .side-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .left {
+    margin-left: -2px;
+  }
+
+  .right {
+    margin-right: -2px;
+  }
+
+  .side {
+    display: none; /* some nas laterais no mobile */
+  }
+}

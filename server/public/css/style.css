@@ -1,0 +1,652 @@
+/* Reset e estrutura básica continuam iguais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background-image: url('../assets/Background-Logo-SiteAvaliacao4.png'); /* <- caminho da imagem */
+  background-size: cover; /* Ajusta a imagem para preencher */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: url('../assets/Logo-SiteAvaliacao3.png'); /* <- caminho da imagem */
+  background-size: 125%; /* Aumenta o "zoom" da imagem */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+  margin-right: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.site-title {
+  font-size: 3rem;
+  color: #f5f5f5;
+}
+
+/* Nova seção com fundo colorido */
+.main-options {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background-image: url('../assets/Background-Screen1.4.png'); /* <- caminho da imagem */
+  background-size: cover; /* Ajusta a imagem para preencher */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+  z-index: 0;
+}
+
+.option-box.comentarios {
+  width: 400px;
+  height: 125px;
+  background-color: #3cbb3c; /* verde */
+}
+
+.option-box.comentarios .box-label {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Quadrados atualizados */
+.option-box {
+  width: 40%;
+  min-width: 250px;
+  height: 250px;
+  border-radius: 20px; /* Cantos arredondados */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.option-box:hover {
+  transform: scale(1.05);
+}
+
+.option-box:active {
+  transform: scale(1.1);
+}
+
+.box-label {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: white; /* ou outro tom conforme o fundo */
+}
+
+.votar {
+  background-image: url('../assets/Button-Votar2.png'); /* <- caminho da imagem */
+  background-size: cover; /* Ajusta a imagem para preencher */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+}
+
+.ranke {
+  background-image: url('../assets/Button-Rank4.png'); /* <- caminho da imagem */
+  background-size: cover; /* Ajusta a imagem para preencher */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+}
+
+.comentarios {
+  background-image: url('../assets/Button-Comentarios.png'); /* <- caminho da imagem */
+  background-size: cover; /* Ajusta a imagem para preencher */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita repetição */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .main-options {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .option-box {
+    width: 90%;
+    height: 200px;
+  }
+
+  .option-box.comentarios {
+    width: 90%;
+    height: 200px;
+  }
+
+  .option-box.comentarios .box-label {
+    position: absolute;
+    top: 40px;
+    left: 135px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .site-title {
+    font-size: 2.5rem;
+  }
+
+}
+
+.back-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: url('../assets/Arrow-left2.png');
+  background-size: 100%;
+  background-position: right 3.5px center;
+  background-repeat: no-repeat;
+  background-color: #ffcc17;
+  cursor: pointer;
+  margin-right: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+}
+
+.back-button:active {
+  transform: scale(1.1);
+}
+
+/* Tela de votação */
+.vote-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+  overflow-x: hidden;
+  background-image: url('../assets/Background-Screen2.2.png'); /* <- caminho da imagem */
+  background-position: center; /* Centraliza a imagem */
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Barra de pesquisa */
+.search-bar {
+  margin-bottom: 1rem;
+  width: 600px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Área dos novos cartões (substituindo os antigos estabelecimentos) */
+.card-container {
+  position: relative;
+  width: 600px;
+  height: 250px;
+  margin: 2rem auto;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.rating-panel {
+  position: absolute;
+  top: 23px;
+  left: 0;
+  width: 90%;
+  height: 80%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateX(20%);
+  transition: transform 0.4s ease;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-panel.open {
+  transform: translateX(85%);
+}
+
+.rating-panel::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 60px;
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ... código anterior mantido ... */
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.image-slider {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  border-radius: 20px;
+}
+
+.card button.prev,
+.card button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  width: 40px;
+  height: 40px;
+}
+
+.card button.prev {
+  left: 10px;
+  background-image: url('../assets/Seta-esquerda.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+.card button.next {
+  right: 10px;
+  background-image: url('../assets/Seta-direita.PNG');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+.card button:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.card .label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+}
+
+/* faz o hover/active escalonar todo o card-container */
+.card-container {
+  transition: transform 0.3s ease;
+}
+.card-container:hover {
+  transform: scale(1.05);
+  z-index: 2;  /* traz o container inteiro para frente */
+}
+.card-container:active {
+  transform: scale(1.1);
+}
+
+.stars {
+  margin-top: -4px;
+  display: flex;
+  gap: 5px;
+  padding-left: 8.5rem;
+}
+
+.star {
+  width: 60px;
+  height: 60px;
+  background-image: url('../assets/Star.png');
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transition: transform 0.3s ease;
+}
+
+.star:hover {
+  transform: scale(1.3);
+}
+
+.star:active {
+  transform: scale(1.1);
+}
+
+.star.active {
+  background-image: url('../assets/Star-active.png');
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.star.active:hover {
+  transform: scale(1.3);
+}
+
+.star.active:active {
+  transform: scale(1.1);
+}
+
+.static-stars {
+  position: absolute;
+  bottom: 55px;
+  left: 8px;
+  display: flex;
+  gap: 10px;
+  z-index: 3; 
+}
+
+/* Estrelas do ranking — sem hover nem clique */
+
+/* Container das 5 estrelas */
+.stars-container {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+.rank-star {
+  width: 40px;
+  height: 40px;
+  background: url('../assets/Star.png') no-repeat center/contain;
+  position: relative;
+  display: inline-block;
+  margin-right: 4px;
+  pointer-events: none;
+}
+.rank-star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: url('../assets/Star-active.png') no-repeat center/contain;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.rank-star.inactive {
+  filter: grayscale(100%) opacity(50%);
+}
+
+/* .rank-star sem .inactive pode manter o Star-active.png se preferir */
+.rank-star:not(.inactive) {
+  background-image: url('../assets/Star-active.png');
+}
+
+.rank-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+  overflow-x: hidden;
+  background-image: url('../assets/Background-Screen3.2.png'); /* <- caminho da imagem */
+  background-position: center; /* Centraliza a imagem */
+  min-height: 100vh;
+  position: relative;
+}
+
+.review-count {
+  position: absolute;
+  bottom: 10px;
+  left: 8px;
+  font-size: 2rem;
+  color: white;
+  z-index: 3;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.details-label {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(270deg); 
+  transform-origin: center;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #000;
+  z-index: 2;
+  writing-mode: horizontal-tb;
+}
+
+.details-label .details-arrow {
+  width: 20px;
+  height: 20px;
+  margin-left: 6px; 
+  background-image: url('../assets/Seta-direita-black.PNG');
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* Desfaz a rotação herdada do pai */
+  transform: rotate(-270deg);
+  transition: transform 0.3s ease;
+}
+
+/* Gira a seta corretamente ao abrir o painel */
+.rating-panel.open .details-arrow {
+  transform: rotate(-90deg); /* de -270 → -90 (aponta para a esquerda) */
+}
+
+.details-text {
+  padding: 1rem;
+  padding-left: 8rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.25;
+  white-space: pre-line;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Torna o texto visível quando o painel for aberto */
+.rating-panel.open .details-text {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ================================================
+   OVERRIDE PARA ESTRELAS FRACTIONAIS NO RANK.HTML
+   ================================================ */
+
+/* ========== OVERRIDE PARA RANKING ========= */
+/* ─── OVERRIDE EXCLUSIVO PARA RANKING ─── */
+
+.static-stars .ranking-star {
+  width: 40px;
+  height: 40px;
+  background: url('../assets/Star.png') no-repeat center/contain;
+  position: relative;
+  pointer-events: none;
+}
+
+.static-stars .ranking-star-fill {
+  position: absolute;
+  top:    0;
+  left:   0;
+  bottom: 0;
+  background: url('../assets/Star-active.png') no-repeat center/contain;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ─── Estrelas do ranking via clip-path ─── */
+
+.star-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.star-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+
+/* ────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  .back-button {
+    width: 65px;
+    height: 65px;
+  }
+
+  .vote .site-title,
+  .rank .site-title {
+    font-size: 1.4rem;
+  }
+
+  .search-bar {
+    width: 310px;
+  }
+
+  .card-container {
+    width: 200px;
+    height: 90px;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+
+  .card .label {
+    font-size: 0.75rem;
+  }
+
+  .card button.prev,
+  .card button.next {
+    width: 30px;
+    height: 30px;
+  }
+
+  .rating-panel {
+    top: 10px;
+    left: 0;
+    width: 90%;
+    height: 80%;
+    border-radius: 10px;
+  }
+  
+  .stars {
+    gap: 2px;
+    padding-left: 3rem;
+    margin-top: -0.5px;
+  }
+
+  .star {
+    width: 20px;
+    height: 20px;
+  }
+
+  .rank-star {
+    width: 20px;
+    height: 20px;
+  }
+
+  .static-stars {
+    gap: 5px;
+    left: 8px;
+    bottom: 22px;
+  }
+
+  .review-count {
+    font-size: 0.75rem;
+    left: 8px;
+    bottom: 5px;
+  }
+
+  .details-label {
+    right: -19px;
+  }
+
+  .details-label .details-arrow {
+    width: 10px;
+    height: 10px;
+    margin-left: 1px;
+  }
+
+  .details-label {
+    font-size: 0.3rem;
+  }
+
+  .details-text {
+    margin-top: 3px;
+    font-size: 0.3rem;
+    padding: 0.5rem;
+    line-height: 1;
+    padding-left: 3rem;
+  }
+
+  .star-container {
+    width: 20px;
+    height: 20px;
+  }
+
+}

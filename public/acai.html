@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Açaí du Cheff - Comentários</title>
+  <link rel="stylesheet" href="css/comentarios.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="back-button" onclick="window.location.href='carrossel.html'"></div>
+    <div class="site-title">Açaí du Cheff</div>
+  </div>
+
+  <div class="main-options">
+    <div class="filtro-header">
+      <h2>Comentários</h2>
+      <div class="filtro-comentarios">
+        <label for="ordenar">Ordenar por:</label>
+        <select id="ordenar">
+          <option value="recentes">Mais Recentes</option>
+          <option value="curtidas">Mais Curtidos</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <section class="comentarios">
+    <!-- Formulário -->
+    <form id="form-comentario">
+      <textarea id="comentario-input" placeholder="Escreva seu comentário..." required></textarea>
+      <button type="submit">Comentar</button>
+    </form>
+
+    <!-- Lista de comentários -->
+    <div id="lista-comentarios"></div>
+  </section>
+
+  <script src="js/estabelecimento.js"></script>
+</body>
+</html>
