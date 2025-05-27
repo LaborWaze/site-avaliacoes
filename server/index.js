@@ -1,20 +1,41 @@
 import express from 'express';
-import sequelize from './utils/db.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import sequelize from './utils/db.js';
+import reviewRoutes from './routes/reviewRoutes.js';
+import commentRoutes from './routes/commentRoutes.js';
+
 dotenv.config();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 10000;
+// 1) Serve o front-end estático da pasta server/public
+const publicDir = path.join(__dirname, 'public');
+app.use(express.static(publicDir));
+
+// 2) Rota raiz — envia o index.html de server/public
+app.get('/', (req, res) => {
+  res.sendFile(path.join(publicDir, 'index.html'));
+});
+
+// 3) Rotas de API
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/comments', commentRoutes);
+
+const PORT = process.env.PORT || 3000;
 
 (async () => {
   try {
     const dialect = sequelize.getDialect(); // 'sqlite' ou 'postgres'
 
-    // 1) Backup apenas no SQLite
+    // Backup apenas quando for SQLite
     if (dialect === 'sqlite') {
       await sequelize.query('DROP TABLE IF EXISTS reviews_backup;');
       await sequelize.query('DROP TABLE IF EXISTS comments_backup;');
@@ -43,20 +64,14 @@ const PORT = process.env.PORT || 10000;
       console.log('🗄️  backup tables populadas com sucesso');
     }
 
-    // 2) Sincroniza modelos (cria/atualiza tabelas)
+    // Sincroniza modelos (cria/atualiza tables reviews e comments)
     await sequelize.sync({ alter: true });
     console.log('🗄️  Banco sincronizado');
 
-    // 3) Inicia o servidor
+    // Inicia o servidor
     app.listen(PORT, () => console.log(`🚀  Servidor rodando na porta ${PORT}`));
-  } catch (error) {
-    console.error('❌  Falha ao iniciar o servidor:', error);
+  } catch (err) {
+    console.error('❌  Falha ao sincronizar ou repovoar backups:', err);
     process.exit(1);
   }
 })();
-
-// suas rotas aqui, sem alterações...
-// ex:
-// app.get('/api/reviews', async (req, res) => { … });
-
-
