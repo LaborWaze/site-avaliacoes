@@ -327,15 +327,11 @@ body {
   text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
-/* faz o hover/active escalonar todo o card-container */
-.card-container {
-  transition: transform 0.3s ease;
-}
-.card-container:hover {
+.card:hover {
   transform: scale(1.05);
-  z-index: 2;  /* traz o container inteiro para frente */
 }
-.card-container:active {
+
+.card:active {
   transform: scale(1.1);
 }
 
@@ -388,45 +384,21 @@ body {
   bottom: 55px;
   left: 8px;
   display: flex;
-  gap: 10px;
+  gap: 8px;
   z-index: 3; 
-}
-
-/* Estrelas do ranking — sem hover nem clique */
-
-/* Container das 5 estrelas */
-.stars-container {
-  display: flex;
-  align-items: center;
-  margin: 0.5rem 0;
+  background-color: white;         /* fundo branco */
+  padding: 5px 10px;               /* espaço interno ao redor das estrelas */
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* leve sombra para destaque */
 }
 
 .rank-star {
+  margin-top: -2px;
   width: 40px;
   height: 40px;
-  background: url('../assets/Star.png') no-repeat center/contain;
-  position: relative;
-  display: inline-block;
-  margin-right: 4px;
-  pointer-events: none;
-}
-.rank-star-fill {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background: url('../assets/Star-active.png') no-repeat center/contain;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.rank-star.inactive {
-  filter: grayscale(100%) opacity(50%);
-}
-
-/* .rank-star sem .inactive pode manter o Star-active.png se preferir */
-.rank-star:not(.inactive) {
-  background-image: url('../assets/Star-active.png');
+  background-image: url('../assets/Star-active.png'); /* corrigi o caminho */
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .rank-main {
@@ -503,54 +475,6 @@ body {
   pointer-events: auto;
 }
 
-/* ================================================
-   OVERRIDE PARA ESTRELAS FRACTIONAIS NO RANK.HTML
-   ================================================ */
-
-/* ========== OVERRIDE PARA RANKING ========= */
-/* ─── OVERRIDE EXCLUSIVO PARA RANKING ─── */
-
-.static-stars .ranking-star {
-  width: 40px;
-  height: 40px;
-  background: url('../assets/Star.png') no-repeat center/contain;
-  position: relative;
-  pointer-events: none;
-}
-
-.static-stars .ranking-star-fill {
-  position: absolute;
-  top:    0;
-  left:   0;
-  bottom: 0;
-  background: url('../assets/Star-active.png') no-repeat center/contain;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-/* ─── Estrelas do ranking via clip-path ─── */
-
-.star-container {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  margin-right: 4px;
-}
-
-.star-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-
-/* ────────────────────────────────────── */
-
 @media (max-width: 768px) {
 
   .back-button {
@@ -568,9 +492,8 @@ body {
   }
 
   .card-container {
-    width: 90vw;
-    height: auto;
-    margin: 1rem auto;
+    width: 225px;
+    height: 110px;
   }
 
   .card {
@@ -602,19 +525,21 @@ body {
   }
 
   .star {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
   }
 
   .rank-star {
-    width: 28px;
-    height: 28px;
+    width: 15px;
+    height: 15px;
   }
 
   .static-stars {
     gap: 5px;
     left: 8px;
     bottom: 22px;
+    padding: 2px 5px;
+    border-radius: 4px;
   }
 
   .review-count {
@@ -639,15 +564,10 @@ body {
 
   .details-text {
     margin-top: 3px;
-    font-size: 0.3rem;
+    font-size: 0.35rem;
     padding: 0.5rem;
     line-height: 1;
-    padding-left: 3rem;
-  }
-
-  .star-container {
-    width: 20px;
-    height: 20px;
+    padding-left: 3.25rem;
   }
 
 }
