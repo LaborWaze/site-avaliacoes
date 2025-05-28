@@ -4,11 +4,7 @@ import { getAnonId } from './utils/anon.js';
 console.log('🟢 ranks.js rodando');
 
 const places = [
-  { id: 1, name: "Açaí du Cheff",      image: "assets/Acai1.jpg", description: "Pequeno ponto local especializado em açaí\n
- e sorvetes variados, com ambiente simples\n
- e acolhedor. Atende para consumo no local\n
- e retirada. Ideal para quem busca algo   \n
- gelado e rápido durante o dia." },
+  { id: 1, name: "Açaí du Cheff",      image: "assets/Acai1.jpg", description: "Pequeno ponto local..." },
   { id: 2, name: "Cantina do Marcelo",  image: "assets/Marcelo1.jpg", description: "Cantina do Marcelo..." },
   { id: 3, name: "Bunitos",             image: "assets/Bunitos1.jpg",  description: "Eles não são tão bonitos..." },
   { id: 4, name: "Cantina Veloso",     image: "assets/Veloso1.jpg",   description: "Veloso. Esse nome..." },
