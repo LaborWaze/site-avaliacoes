@@ -384,18 +384,13 @@ body {
   bottom: 55px;
   left: 8px;
   display: flex;
-  gap: 8px;
+  gap: 10px;
   z-index: 3; 
-  background-color: white;         /* fundo branco */
-  padding: 5px 10px;               /* espaço interno ao redor das estrelas */
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* leve sombra para destaque */
 }
 
 .rank-star {
-  margin-top: -2px;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-image: url('../assets/Star-active.png'); /* corrigi o caminho */
   background-size: contain;
   background-repeat: no-repeat;
@@ -492,7 +487,7 @@ body {
   }
 
   .card-container {
-    width: 225px;
+    width: 220px;
     height: 110px;
   }
 
@@ -530,20 +525,18 @@ body {
   }
 
   .rank-star {
-    width: 15px;
-    height: 15px;
+    width: 30px;
+    height: 30px;
   }
 
   .static-stars {
     gap: 5px;
-    left: 8px;
-    bottom: 22px;
-    padding: 2px 5px;
-    border-radius: 4px;
+    left: 6px;
+    bottom: 25px;
   }
 
   .review-count {
-    font-size: 0.75rem;
+    font-size: 1rem;
     left: 8px;
     bottom: 5px;
   }
