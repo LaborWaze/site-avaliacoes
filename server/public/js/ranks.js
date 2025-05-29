@@ -4,12 +4,47 @@ import { getAnonId } from './utils/anon.js';
 console.log('🟢 ranks.js rodando');
 
 const places = [
-  { id: 1, name: "Açaí du Cheff",      image: "assets/Acai1.jpg",    description: "Açaí e mais umas paradas..." },
-  { id: 2, name: "Cantina do Marcelo",  image: "assets/Marcelo1.jpg", description: "Cantina do Marcelo..." },
-  { id: 3, name: "Bunitos",             image: "assets/Bunitos1.jpg",  description: "Eles não são tão bonitos..." },
-  { id: 4, name: "Cantina Veloso",     image: "assets/Veloso1.jpg",   description: "Veloso. Esse nome..." },
-  { id: 5, name: "Luau",               image: "assets/Luau1.jpg",     description: "Confundia com “Luan”..." },
-  { id: 6, name: "Spazio",             image: "assets/Spazio1.jpg",   description: "Trocadilho com “espaço”..." }
+  { id: 1, name: "Açaí du Cheff",      image: "assets/Acai1.jpg",    
+    description: `Pequeno ponto local especializado em açaí\n
+                  e sorvetes variados, com ambiente simples\n
+                  e acolhedor. Atende para consumo no local\n
+                  e retirada. Ideal para quem busca algo   \n
+                  gelado e rápido durante o dia.           `},
+
+  { id: 2, name: "Cantina do Marcelo",  image: "assets/Marcelo1.jpg", 
+    description: `Espaço simples voltado para lanches      \n
+                  rápidos com variedade de salgados e      \n
+                  refrigerantes. Atendimento direto no     \n
+                  balcão Ideal para quem busca uma pausa   \n
+                  prática e acessível no dia.              `},
+
+  { id: 3, name: "Bunitos",             image: "assets/Bunitos1.jpg",  
+    description: `                                         \n
+                  Ambiente informal com foco em salgados   \n
+                  diversos e bebidas geladas. Boa escolha  \n
+                  para um lanche rápido entre as aulas.    \n
+                                                           `},
+
+  { id: 4, name: "Cantina Veloso",     image: "assets/Veloso1.jpg",   
+    description: `Local simples com foco em salgados       \n
+                  prontos e bebidas geladas. Fluxo intenso \n
+                  nos horários de intervalo. Atende        \n
+                  principalmente quem busca algo rápido    \n
+                  entre uma atividade ou outra do dia.     `},
+
+  { id: 5, name: "Luau",               image: "assets/Luau1.jpg",     
+    description: `Espaço voltado para lanches rápidos, com \n
+                  salgados tradicionais e variedade de     \n
+                  bebidas. Movimento concentrado nos       \n
+                  períodos de pausa. Frequentado por quem  \n
+                  quer praticidade e agilidade.            `},
+
+  { id: 6, name: "Spazio",             image: "assets/Spazio1.jpg",   
+    description: `Estabelecimento bem organizado, com boas \n
+                  opções para diferentes momentos do dia.  \n
+                  Combina lanches, pratos rápidos e        \n
+                  bebidas, em um ambiente mais espaçoso.   \n
+                  Escolha comum entre quem busca variedade.`}
 ];
 
 const container   = document.getElementById("rankList");
