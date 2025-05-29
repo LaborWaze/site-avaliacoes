@@ -70,17 +70,24 @@ export async function getComments(req, res) {
   }
 }
 
-// DELETE /api/comments/:id
+// controllers/commentController.js
+
 export async function deleteComment(req, res) {
   try {
     const { id } = req.params;
+    // 1) apaga todas as respostas diretas
+    await Comment.destroy({ where: { parentCommentId: id } });
+    // (se quiser remover em níveis mais profundos, pode fazer recursão)
+
+    // 2) apaga o comentário pai
     const deleted = await Comment.destroy({ where: { id } });
     if (!deleted) {
       return res.status(404).json({ error: 'Comentário não encontrado' });
     }
-    return res.status(204).end(); // 204 = sem conteúdo
+    return res.status(204).end();
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Erro ao tentar excluir comentário' });
   }
 }
+
