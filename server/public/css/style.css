@@ -568,9 +568,8 @@ body {
   }
 
   .card-container {
-    width: 90vw;
-    height: auto;
-    margin: 1rem auto;
+    width: 200px;
+    height: 90px;
   }
 
   .card {
@@ -602,13 +601,13 @@ body {
   }
 
   .star {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
   }
 
   .rank-star {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
   }
 
   .static-stars {
