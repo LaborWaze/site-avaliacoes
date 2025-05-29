@@ -69,3 +69,18 @@ export async function getComments(req, res) {
     res.status(500).json({ error: 'Erro ao buscar comentários' });
   }
 }
+
+// DELETE /api/comments/:id
+export async function deleteComment(req, res) {
+  try {
+    const { id } = req.params;
+    const deleted = await Comment.destroy({ where: { id } });
+    if (!deleted) {
+      return res.status(404).json({ error: 'Comentário não encontrado' });
+    }
+    return res.status(204).end(); // 204 = sem conteúdo
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Erro ao tentar excluir comentário' });
+  }
+}
