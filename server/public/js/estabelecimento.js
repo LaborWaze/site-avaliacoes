@@ -1,3 +1,5 @@
+// estabelecimento.js
+
 import { getAnonId } from './utils/anon.js';
 
 const placeId = Number(document.body.dataset.placeId);
@@ -17,6 +19,21 @@ if (!sessionStorage.getItem('likesInitialized')) {
 
 // Estado local para funcionalidades de curtir e respostas
 let localComments = [];
+
+// Funções auxiliares para enviar e remover like no servidor
+async function sendLikeToServer(commentId) {
+  const res = await fetch(`/api/comments/${commentId}/like`, { method: 'POST' });
+  if (!res.ok) throw new Error('Falha ao enviar like');
+  const json = await res.json();
+  return json.likeCount;
+}
+
+async function removeLikeFromServer(commentId) {
+  const res = await fetch(`/api/comments/${commentId}/like`, { method: 'DELETE' });
+  if (!res.ok) throw new Error('Falha ao remover like');
+  const json = await res.json();
+  return json.likeCount;
+}
 
 // Submete novo comentário ao backend e atualiza lista
 form.addEventListener('submit', async e => {
@@ -46,7 +63,10 @@ async function loadComments() {
     const res = await fetch(`/api/comments?placeId=${placeId}`);
     if (!res.ok) throw new Error(res.statusText);
     const comments = await res.json();
+
+    // Recupera IDs curtidos no localStorage
     const likedIds = JSON.parse(localStorage.getItem(likedCommentsKey) || '[]');
+
     localComments = comments.map(c => ({
       ...c,
       curtido: likedIds.includes(c.id),
@@ -56,6 +76,7 @@ async function loadComments() {
       })),
       mostrarRespostas: false
     }));
+
     renderComments();
   } catch (err) {
     console.error('Erro ao carregar comentários:', err);
@@ -97,19 +118,29 @@ function renderComments() {
     btnLike.textContent = c.curtido ? `❤️ ${c.likeCount}` : `🤍 ${c.likeCount}`;
     if (c.curtido) btnLike.style.color = 'red';
     btnLike.addEventListener('click', async () => {
-      if (c.curtido) return; // impede duplo clique
       try {
-        const res = await fetch(`/api/comments/${c.id}/like`, { method: 'POST' });
-        if (!res.ok) throw new Error();
-        const { likeCount } = await res.json();
-        c.likeCount = likeCount;
-        c.curtido = true;
-        const ids = JSON.parse(localStorage.getItem(likedCommentsKey) || '[]');
-        ids.push(c.id);
-        localStorage.setItem(likedCommentsKey, JSON.stringify(ids));
+        // Se já estiver curtido, faz unlike
+        if (c.curtido) {
+          const newCount = await removeLikeFromServer(c.id);
+          c.likeCount = newCount;
+          c.curtido = false;
+          // Atualiza localStorage: remove o ID
+          const ids = JSON.parse(localStorage.getItem(likedCommentsKey) || '[]');
+          const updated = ids.filter(id => id !== c.id);
+          localStorage.setItem(likedCommentsKey, JSON.stringify(updated));
+        } else {
+          // Se não estiver curtido, faz like
+          const newCount = await sendLikeToServer(c.id);
+          c.likeCount = newCount;
+          c.curtido = true;
+          // Atualiza localStorage: adiciona o ID
+          const ids = JSON.parse(localStorage.getItem(likedCommentsKey) || '[]');
+          ids.push(c.id);
+          localStorage.setItem(likedCommentsKey, JSON.stringify(ids));
+        }
         renderComments();
       } catch (err) {
-        console.error('Erro ao curtir comentário:', err);
+        console.error('Erro ao alternar like do comentário:', err);
       }
     });
 
@@ -166,7 +197,7 @@ function renderComments() {
       c.respostas.forEach(r => {
         const divR = document.createElement('div');
         divR.className = 'comentario-resposta';
-        
+
         // Meta da resposta
         const metaR = document.createElement('div');
         metaR.className = 'comentario-meta';
@@ -183,34 +214,43 @@ function renderComments() {
         btnLikeR.textContent = r.curtido ? `❤️ ${r.likeCount}` : `🤍 ${r.likeCount}`;
         if (r.curtido) btnLikeR.style.color = 'red';
         btnLikeR.addEventListener('click', async () => {
-          if (r.curtido) return;
           try {
-            const res2 = await fetch(`/api/comments/${r.id}/like`, { method: 'POST' });
-            if (!res2.ok) throw new Error();
-            const { likeCount } = await res2.json();
-            r.likeCount = likeCount;
-            r.curtido = true;
-            const ids2 = JSON.parse(localStorage.getItem(likedCommentsKey) || '[]');
-            ids2.push(r.id);
-            localStorage.setItem(likedCommentsKey, JSON.stringify(ids2));
+            if (r.curtido) {
+              const newCountR = await removeLikeFromServer(r.id);
+              r.likeCount = newCountR;
+              r.curtido = false;
+              // Atualiza localStorage: remove o ID da resposta
+              const idsR = JSON.parse(localStorage.getItem(likedCommentsKey) || '[]');
+              const updatedR = idsR.filter(id => id !== r.id);
+              localStorage.setItem(likedCommentsKey, JSON.stringify(updatedR));
+            } else {
+              const newCountR = await sendLikeToServer(r.id);
+              r.likeCount = newCountR;
+              r.curtido = true;
+              // Atualiza localStorage: adiciona o ID da resposta
+              const idsR = JSON.parse(localStorage.getItem(likedCommentsKey) || '[]');
+              idsR.push(r.id);
+              localStorage.setItem(likedCommentsKey, JSON.stringify(idsR));
+            }
             renderComments();
           } catch (err) {
-            console.error('Erro ao curtir resposta:', err);
+            console.error('Erro ao alternar like da resposta:', err);
           }
         });
 
-        
         const actionsR = document.createElement('div');
         actionsR.className = 'acoes';
         actionsR.append(btnLikeR);
-            // Primeiro a meta (Anônimo + data)
-    divR.append(metaR);
 
-    // Em seguida corpo da resposta: texto + botão de curtir na mesma linha
-    const bodyR = document.createElement('div');
-    bodyR.className = 'comentario-body';
-    bodyR.append(textoR, actionsR);
-    divR.append(bodyR);
+        // Primeiro a meta (Anônimo + data)
+        divR.append(metaR);
+
+        // Em seguida corpo da resposta: texto + botão de curtir na mesma linha
+        const bodyR = document.createElement('div');
+        bodyR.className = 'comentario-body';
+        bodyR.append(textoR, actionsR);
+        divR.append(bodyR);
+
         listResp.appendChild(divR);
       });
       respContainer.append(toggleBtn, listResp);
