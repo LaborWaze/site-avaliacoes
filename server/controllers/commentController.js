@@ -29,6 +29,19 @@ export async function likeComment(req, res) {
   }
 }
 
+// DELETE /api/comments/:id/like
+export async function unlikeComment(req, res) {
+  const { id } = req.params;
+  const comment = await Comment.findByPk(id);
+  if (!comment) {
+    return res.status(404).json({ error: 'Comentário não encontrado' });
+  }
+  // Evita que fique negativo:
+  comment.likeCount = Math.max(comment.likeCount - 1, 0);
+  await comment.save();
+  return res.json({ likeCount: comment.likeCount });
+}
+
 // GET /api/comments?placeId=X[&sortBy=curtidas]
 export async function getComments(req, res) {
   const { placeId, sortBy } = req.query;
