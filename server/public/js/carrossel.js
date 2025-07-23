@@ -4,7 +4,7 @@ const carossel = document.getElementById('carossel');
 const items = [
   { label: 'estabelecimento1', image: 'assets/Refeitorio-carrossel.png', link: 'refeitorio.html' },
   { label: 'estabelecimento2', image: 'assets/Acai-carrossel.png', link: 'acai.html'},
-  { label: 'estabelecimento3', image: 'assets/Bunitos-carrossel.jpeg', link: 'bunitos.html'},
+  { label: 'estabelecimento3', image: 'assets/Bunitos-carrossel.png', link: 'bunitos.html'},
   { label: 'estabelecimento4', image: 'assets/Marcelo-carrossel.png', link: 'marcelo.html'},
   { label: 'estabelecimento5', image: 'assets/Veloso-carrossel.png', link: 'veloso.html'},
   { label: 'estabelecimento6', image: 'assets/Luau-carrossel.png', link: 'luau.html'},
