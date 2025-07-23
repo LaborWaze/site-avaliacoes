@@ -3,7 +3,7 @@ const carossel = document.getElementById('carossel');
 // Agora cada item tem um label e uma imagem
 const items = [
   { label: 'Refeitório', image: 'assets/Refeitorio-carrossel.png', link: 'refeitorio.html' },
-  { label: 'Açaí du Cheff', image: 'assets/Acai-carrossel.jpeg', link: 'acai.html'},
+  { label: 'Açaí du Cheff', image: 'assets/Acai-carrossel.png', link: 'acai.html'},
   { label: 'Bunitos', image: 'assets/Bunitos-carrossel.png', link: 'bunitos.html'},
   { label: 'Cantina do Marcelo', image: 'assets/Marcelo-carrossel.png', link: 'marcelo.html'},
   { label: 'Cantina Veloso', image: 'assets/Veloso-carrossel.png', link: 'veloso.html'},
