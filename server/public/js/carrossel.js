@@ -2,13 +2,13 @@ const carossel = document.getElementById('carossel');
 
 // Agora cada item tem um label e uma imagem
 const items = [
-  { label: 'Refeitório', image: 'assets/Refeitorio-carrossel.png', link: 'refeitorio.html' },
-  { label: 'Açaí du Cheff', image: 'assets/Acai-carrossel.png', link: 'acai.html'},
-  { label: 'Bunitos', image: 'assets/Bunitos-carrossel.jpg', link: 'bunitos.html'},
-  { label: 'Cantina do Marcelo', image: 'assets/Marcelo-carrossel.png', link: 'marcelo.html'},
-  { label: 'Cantina Veloso', image: 'assets/Veloso-carrossel.png', link: 'veloso.html'},
-  { label: 'Luau', image: 'assets/Luau-carrossel.png', link: 'luau.html'},
-  { label: 'Spazio', image: 'assets/Spazio-carrossel.png', link: 'spazio.html'}
+  { label: 'estabelecimento1', image: 'assets/Refeitorio-carrossel.png', link: 'refeitorio.html' },
+  { label: 'estabelecimento2', image: 'assets/Acai-carrossel.png', link: 'acai.html'},
+  { label: 'estabelecimento3', image: 'assets/Bunitos-carrossel.jpg', link: 'bunitos.html'},
+  { label: 'estabelecimento4', image: 'assets/Marcelo-carrossel.png', link: 'marcelo.html'},
+  { label: 'estabelecimento5', image: 'assets/Veloso-carrossel.png', link: 'veloso.html'},
+  { label: 'estabelecimento6', image: 'assets/Luau-carrossel.png', link: 'luau.html'},
+  { label: 'estabelecimento7', image: 'assets/Spazio-carrossel.png', link: 'spazio.html'}
 ];
 
 let currentIndex = 0;
