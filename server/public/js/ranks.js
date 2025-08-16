@@ -6,42 +6,42 @@
 console.log('🟢 ranks.js rodando (sem voto pessoal)');
 
 const places = [
-  { id: 1, name: "Açaí du Cheff",      image: "assets/Acai1.jpg",
+  { id: 1, name: "Estabelecimento 1",      image: "assets/Acai-carrossel.png",
     description: `Pequeno ponto local especializado em açaí\n
                   e sorvetes variados, com ambiente simples\n
                   e acolhedor. Atende para consumo no local\n
                   e retirada. Ideal para quem busca algo   \n
                   gelado e rápido durante o dia.           `},
 
-  { id: 2, name: "Cantina do Marcelo",  image: "assets/Marcelo1.jpg",
+  { id: 2, name: "Estabelecimento 2",  image: "assets/Acai-carrossel.png",
     description: `Espaço simples voltado para lanches      \n
                   rápidos com variedade de salgados e      \n
                   refrigerantes. Atendimento direto no     \n
                   balcão Ideal para quem busca uma pausa   \n
                   prática e acessível no dia.              `},
 
-  { id: 3, name: "Bunitos",             image: "assets/Bunitos1.jpg",
+  { id: 3, name: "Estabelecimento 3",             image: "assets/Acai-carrossel.png",
     description: `                                         \n
                   Ambiente informal com foco em salgados   \n
                   diversos e bebidas geladas. Boa escolha  \n
                   para um lanche rápido entre as aulas.    \n
                                                            `},
 
-  { id: 4, name: "Cantina Veloso",      image: "assets/Veloso1.jpg",
+  { id: 4, name: "Estabelecimento 4",      image: "assets/Acai-carrossel.png",
     description: `Local simples com foco em salgados       \n
                   prontos e bebidas geladas. Fluxo intenso \n
                   nos horários de intervalo. Atende        \n
                   principalmente quem busca algo rápido    \n
                   entre uma atividade ou outra do dia.     `},
 
-  { id: 5, name: "Luau",               image: "assets/Luau1.jpg",
+  { id: 5, name: "Estabelecimento 5",               image: "assets/Acai-carrossel.png",
     description: `Espaço voltado para lanches rápidos, com \n
                   salgados tradicionais e variedade de     \n
                   bebidas. Movimento concentrado nos       \n
                   períodos de pausa. Frequentado por quem  \n
                   quer praticidade e agilidade.            `},
 
-  { id: 6, name: "Spazio",             image: "assets/Spazio1.jpg",
+  { id: 6, name: "Estabelecimento 6",             image: "assets/Acai-carrossel.png",
     description: `Estabelecimento bem organizado, com boas \n
                   opções para diferentes momentos do dia.  \n
                   Combina lanches, pratos rápidos e        \n
