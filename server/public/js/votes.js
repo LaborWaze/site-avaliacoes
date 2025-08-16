@@ -2,12 +2,12 @@
 import { getAnonId } from './utils/anon.js';
 
 const establishments = [
-  { id: 1, name: "Açaí du Cheff",   images: ["assets/Acai4.png","assets/Acai5.png","assets/Acai6.png"] },
-  { id: 2, name: "Cantina do Marcelo", images: ["assets/Marcelo3.png","assets/Marcelo4.png"] },
-  { id: 3, name: "Bunitos",          images: ["assets/Bunitos3.png","assets/Bunitos4.png"] },
-  { id: 4, name: "Cantina Veloso",   images: ["assets/Veloso3.png","assets/Veloso4.png"] },
-  { id: 5, name: "Luau",             images: ["assets/Luau3.png","assets/Luau4.png"] },
-  { id: 6, name: "Spazio",           images: ["assets/Spazio1.jpg","assets/Spazio6.png","assets/Spazio7.png"] }
+  { id: 1, name: "Estabelecimento 1",   images: ["assets/Acai-carrossel.png","assets/Acai-carrossel.png","assets/Acai-carrossel.png"] },
+  { id: 2, name: "Estabelecimento 2", images: ["assets/Acai-carrossel.png","assets/Acai-carrossel.png"] },
+  { id: 3, name: "Estabelecimento 3",          images: ["assets/Acai-carrossel.png","assets/Acai-carrossel.png"] },
+  { id: 4, name: "Estabelecimento 4",   images: ["assets/Acai-carrossel.png","assets/Acai-carrossel.png"] },
+  { id: 5, name: "Estabelecimento 5",             images: ["assets/Acai-carrossel.png","assets/Acai-carrossel.png"] },
+  { id: 6, name: "Estabelecimento 6",           images: ["assets/Acai-carrossel.png","assets/Acai-carrossel.png","assets/Acai-carrossel.png"] }
 ];
 
 const list = document.getElementById("establishmentList");
