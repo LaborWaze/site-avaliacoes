@@ -4,7 +4,7 @@ import { getAnonId } from './utils/anon.js';
 const establishments = [
   { id: 1, name: "Estabelecimento 1",   images: ["assets/estab 1.jpeg","assets/estab 2.jpeg","assets/estab 3.jpeg"] },
   { id: 2, name: "Estabelecimento 2", images: ["assets/estab 1.jpeg","assets/estab 2.jpeg"] },
-  { id: 3, name: "Estabelecimento 3",          images: ["assets/estab 1.jpeg","estab 2.jpeg"] },
+  { id: 3, name: "Estabelecimento 3",          images: ["assets/estab 1.jpeg","assets/estab 2.jpeg"] },
   { id: 4, name: "Estabelecimento 4",   images: ["assets/estab 1.jpeg","assets/estab 2.jpeg"] },
   { id: 5, name: "Estabelecimento 5",             images: ["assets/estab 1.jpeg","assets/estab 2.jpeg"] },
   { id: 6, name: "Estabelecimento 6",           images: ["assets/estab 1.jpeg","assets/estab 2.jpeg","assets/estab 3.jpeg"] }
