@@ -7,46 +7,46 @@ console.log('🟢 ranks.js rodando (sem voto pessoal)');
 
 const places = [
   { id: 1, name: "Estabelecimento 1",      image: "assets/estab 1.jpeg",
-    description: `Pequeno ponto local especializado em açaí\n
-                  e sorvetes variados, com ambiente simples\n
-                  e acolhedor. Atende para consumo no local\n
-                  e retirada. Ideal para quem busca algo   \n
-                  gelado e rápido durante o dia.           `},
+    description: `-----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------`},
 
   { id: 2, name: "Estabelecimento 2",  image: "assets/estab 2.jpeg",
-    description: `Espaço simples voltado para lanches      \n
-                  rápidos com variedade de salgados e      \n
-                  refrigerantes. Atendimento direto no     \n
-                  balcão Ideal para quem busca uma pausa   \n
-                  prática e acessível no dia.              `},
+    description: `-----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------`},
 
   { id: 3, name: "Estabelecimento 3",             image: "assets/estab 3.jpeg",
-    description: `                                         \n
-                  Ambiente informal com foco em salgados   \n
-                  diversos e bebidas geladas. Boa escolha  \n
-                  para um lanche rápido entre as aulas.    \n
-                                                           `},
+    description: `-----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------`},
 
   { id: 4, name: "Estabelecimento 4",      image: "assets/estab 4.jpeg",
-    description: `Local simples com foco em salgados       \n
-                  prontos e bebidas geladas. Fluxo intenso \n
-                  nos horários de intervalo. Atende        \n
-                  principalmente quem busca algo rápido    \n
-                  entre uma atividade ou outra do dia.     `},
+    description: `-----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------`},
 
   { id: 5, name: "Estabelecimento 5",               image: "assets/estab 5.jpeg",
-    description: `Espaço voltado para lanches rápidos, com \n
-                  salgados tradicionais e variedade de     \n
-                  bebidas. Movimento concentrado nos       \n
-                  períodos de pausa. Frequentado por quem  \n
-                  quer praticidade e agilidade.            `},
+    description: `-----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------`},
 
   { id: 6, name: "Estabelecimento 6",             image: "assets/estab 6.jpeg",
-    description: `Estabelecimento bem organizado, com boas \n
-                  opções para diferentes momentos do dia.  \n
-                  Combina lanches, pratos rápidos e        \n
-                  bebidas, em um ambiente mais espaçoso.   \n
-                  Escolha comum entre quem busca variedade.`}
+    description: `-----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------\n
+                  -----------------------------------------`}
 ];
 
 const container   = document.getElementById("rankList");
